@@ -1,0 +1,21 @@
+@import './pallette.scss';
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&display=swap');
+
+body {
+  font-family: 'Raleway', sans-serif !important;
+}
+
+.navbar {
+  border-radius: 10px;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+  .nav-link {
+    color: $green-dark;
+    cursor: pointer;
+  }
+  .nav-item.active {
+    .nav-link {
+      color: $green;
+    }
+  }
+}

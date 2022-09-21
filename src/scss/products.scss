@@ -1,0 +1,52 @@
+@import './pallette.scss';
+
+#products {
+  [class*='col-'] {
+    margin-bottom: 20px;
+  }
+  .card {
+    margin-bottom: 10px;
+    height: 100%;
+    h3 {
+      font-size: 22px;
+      margin: 15px 0;
+      text-overflow: ellipsis;
+      a {
+        color: $green-dark;
+        text-decoration: none;
+        line-clamp: 2;
+        -webkit-line-clamp: 2;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+      }
+    }
+    .category {
+      margin: 0;
+      span {
+        font-size: 14px;
+        background-color: $green;
+        color: #fff;
+        padding: 5px 10px;
+        border-radius: 10px;
+        text-decoration: none;
+        margin-bottom: 10px;
+      }
+    }
+    .img-holder {
+      text-align: center;
+      img {
+        max-width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+    }
+    .price {
+      font-weight: 700;
+      margin-top: 10px;
+      font-size: 18px;
+    }
+  }
+}

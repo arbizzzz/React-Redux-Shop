@@ -1,0 +1,50 @@
+$green: #119da4ff;
+$blue: #0c7489ff;
+$green-dark: #13505bff;
+$black: #040404ff;
+$wolf: #d7d9ceff;
+
+.text-green {
+  color: $green;
+}
+.bg-green {
+  background-color: $green;
+}
+.text-blue {
+  color: $blue;
+}
+.bg-blue {
+  background-color: $blue;
+}
+
+.text-green-dark {
+  color: $green-dark;
+}
+.bg-green-dark {
+  background-color: $green-dark;
+}
+
+.text-black {
+  color: $black;
+}
+.bg-black {
+  background-color: $black;
+}
+
+.text-wolf {
+  color: $wolf;
+}
+.bg-wolf {
+  background-color: $wolf;
+}
+
+body {
+  background-color: $wolf !important;
+  padding: 120px 0;
+}
+
+h1 {
+  color: #fff;
+  margin-bottom: 45px;
+  font-size: 36px;
+}
