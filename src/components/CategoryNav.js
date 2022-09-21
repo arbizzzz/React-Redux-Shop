@@ -1,23 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { Api } from '../utils/api';
-import { useDispatch } from 'react-redux';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { filterProducts } from '../actions/products';
 
 export default function CategoryNav() {
-  const [categories, setCategories] = useState();
   const [selected, setSelected] = useState('all');
 
-  const dispatch = useDispatch();
+  const categories = useSelector((state) => state.products.categories);
 
-  useEffect(() => {
-    Api.get('/products/categories')
-      .then((data) => {
-        setCategories(data.data);
-      })
-      .catch((error) => {
-        console.warn(error.message);
-      });
-  }, []);
+  const dispatch = useDispatch();
 
   function catClickHandler(category) {
     setSelected(category);

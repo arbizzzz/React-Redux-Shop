@@ -1,4 +1,8 @@
-import { GET_PRODUCTS, FILTER_PRODUCTS } from '../actions/products';
+import {
+  GET_PRODUCTS,
+  FILTER_PRODUCTS,
+  GET_CATEGORIES,
+} from '../actions/products';
 
 export default function products(state = [], action) {
   switch (action.type) {
@@ -11,11 +15,16 @@ export default function products(state = [], action) {
 
     case FILTER_PRODUCTS:
       const { selected } = action;
-      console.log(selected);
       if (selected === 'all') return { ...state, selected: 'all' };
       return {
         ...state,
         selected,
+      };
+
+    case GET_CATEGORIES:
+      return {
+        ...state,
+        categories: action.categories,
       };
     default:
       return state;

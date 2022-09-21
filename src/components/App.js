@@ -4,7 +4,7 @@ import Home from './Home';
 import Product from './Product';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { getProducts } from '../actions/products';
+import { getCategories, getProducts } from '../actions/products';
 
 export default function App() {
   const dispatch = useDispatch();
@@ -14,6 +14,14 @@ export default function App() {
       .then((data) => {
         const initialData = data.data;
         dispatch(getProducts(initialData));
+      })
+      .catch((err) => {
+        console.warn(err.message);
+      });
+
+    Api.get('/products/categories')
+      .then((data) => {
+        dispatch(getCategories(data.data));
       })
       .catch((err) => {
         console.warn(err.message);
