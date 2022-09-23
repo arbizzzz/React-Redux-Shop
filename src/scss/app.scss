@@ -53,6 +53,11 @@ body {
       border-bottom: 1px solid $wolf;
       padding-bottom: 10px;
       padding-top: 10px;
+      button {
+        padding: 5px;
+        font-size: 12px;
+        line-height: 12px;
+      }
       .price {
         font-weight: bold;
         font-size: 14px;

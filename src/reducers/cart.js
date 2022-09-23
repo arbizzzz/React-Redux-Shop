@@ -24,8 +24,11 @@ export default function cart(state = { items: [] }, action) {
         };
       }
     case REMOVE_FROM_CART:
+      const { items } = state;
+
       return {
         ...state,
+        items: items.filter((item) => item.id !== action.id),
       };
     default:
       return state;

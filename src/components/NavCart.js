@@ -1,9 +1,16 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { removeFromCart } from '../actions/cart';
 import { getCartProducts } from '../utils/getCartProducts';
 
 export default function NavCart({ cartItems, count, products }) {
   const cartProducts = getCartProducts(cartItems, products);
+  const dispatch = useDispatch();
   let totalPrice = 0;
+
+  function handleRemove(id) {
+    dispatch(removeFromCart(id));
+  }
   return (
     <div id='nav-cart'>
       <div className='card'>
@@ -33,6 +40,13 @@ export default function NavCart({ cartItems, count, products }) {
                         Total: $ {(item.count * item.price).toFixed(2)}
                       </strong>
                     </div>
+                    <button
+                      type='button'
+                      className='btn btn-outline-danger'
+                      onClick={() => handleRemove(item.id)}
+                    >
+                      remove
+                    </button>
                   </div>
                 </div>
               );

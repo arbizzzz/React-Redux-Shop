@@ -11,9 +11,10 @@ export default function ProductCard({ product }) {
   const [showCounter, setShowCounter] = useState(false);
 
   function handleAddtoCart(id, count) {
+    if (count === 0) return;
     dispatch(addToCart({ id, count }));
     setShowCounter(false);
-    setCount(0);
+    setCount(1);
   }
 
   function handleIncrement() {
