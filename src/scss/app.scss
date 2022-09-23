@@ -18,4 +18,57 @@ body {
       color: $green;
     }
   }
+  .nav-cart-item {
+    margin-left: auto;
+    position: relative;
+    span {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      width: 15px;
+      height: 15px;
+      font-size: 10px;
+      text-align: center;
+      line-height: 1.5;
+      color: #fff;
+      border-radius: 50%;
+      background-color: red;
+    }
+  }
+  #nav-cart {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+    min-width: 200px;
+    width: 300px;
+    .card {
+      border-radius: 15px;
+      strong {
+        font-size: 13px;
+      }
+    }
+    .cart-product-item {
+      border-bottom: 1px solid $wolf;
+      padding-bottom: 10px;
+      padding-top: 10px;
+      .price {
+        font-weight: bold;
+        font-size: 14px;
+        margin: 0 20px;
+      }
+      .final-price {
+        font-size: 16px;
+      }
+    }
+    .cart-total-title {
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .cart-total-price {
+      font-weight: 18px;
+      font-weight: bold;
+    }
+  }
 }
