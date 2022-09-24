@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { removeFromCart } from '../actions/cart';
-import { getCartProducts } from '../utils/getCartProducts';
+import { removeFromCart } from '../redux/actions/cart';
+import { getCartProducts } from '../utils/helpers';
 
 export default function NavCart({ cartItems, count, products }) {
   const cartProducts = getCartProducts(cartItems, products);
@@ -51,12 +51,14 @@ export default function NavCart({ cartItems, count, products }) {
                 </div>
               );
             })}
-          <div className='cart-final-total'>
-            <div className='d-flex align-items-center justify-content-between mt-2'>
-              <div className='cart-total-title'>Cart total</div>
-              <div className='cart-total-price'>{totalPrice.toFixed(2)}</div>
+          {count > 0 && (
+            <div className='cart-final-total'>
+              <div className='d-flex align-items-center justify-content-between mt-2'>
+                <div className='cart-total-title'>Cart total</div>
+                <div className='cart-total-price'>${totalPrice.toFixed(2)}</div>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </div>

@@ -1,11 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { filterProducts } from '../actions/products';
+import { filterProducts } from '../redux/actions/products';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate, useLocation } from 'react-router-dom';
+
 import NavCart from './NavCart';
 
-export default function CategoryNav() {
+export default function MainNav() {
+  const navigate = useNavigate();
+  const { state } = useLocation();
+
   const [selected, setSelected] = useState('all');
   const [showCart, setShowCart] = useState(false);
 
@@ -20,7 +25,8 @@ export default function CategoryNav() {
   const dispatch = useDispatch();
 
   function catClickHandler(category) {
-    setSelected(category);
+    navigate('/', { state: { category } });
+    setSelected(state?.category || category);
     dispatch(filterProducts(category));
   }
 
@@ -31,9 +37,18 @@ export default function CategoryNav() {
     setShowCart(false);
   }
 
+  useEffect(() => {
+    if (state?.category) {
+      setSelected(state.category);
+    } else {
+      setSelected('');
+    }
+  }, [state?.category]);
+
   return (
-    <div className='container mb-2'>
-      <nav className='navbar navbar-expand-lg bg-light'>
+    <div className='container'>
+      <nav className='navbar navbar-expand-lg'>
+        <div className='navbar-brand'>Fake Store</div>
         <ul className='navbar-nav'>
           <li
             className={`nav-item ${selected === 'all' ? 'active' : ''}`}

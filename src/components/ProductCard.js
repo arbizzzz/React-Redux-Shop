@@ -1,34 +1,20 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartPlus, faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
+import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { addToCart } from '../actions/cart';
+import AddCounter from './AddCounter';
 
 export default function ProductCard({ product }) {
-  const dispatch = useDispatch();
-  const [count, setCount] = useState(1);
   const [showCounter, setShowCounter] = useState(false);
-
-  function handleAddtoCart(id, count) {
-    if (count === 0) return;
-    dispatch(addToCart({ id, count }));
-    setShowCounter(false);
-    setCount(1);
-  }
-
-  function handleIncrement() {
-    setCount((count) => (count += 1));
-  }
-
-  function handleDecrement() {
-    if (count === 0) return;
-    setCount((count) => (count -= 1));
-  }
 
   function handleShowCounter() {
     setShowCounter(true);
   }
+
+  function onAddToCart() {
+    setShowCounter(false);
+  }
+  console.log(typeof product.id);
 
   return (
     <div className='card'>
@@ -55,26 +41,7 @@ export default function ProductCard({ product }) {
           )}
 
           {showCounter && (
-            <div className='counter'>
-              <div className='counter-inner d-flex justify-content-between'>
-                <span className='counter-indicator' onClick={handleIncrement}>
-                  <FontAwesomeIcon icon={faPlus} size='1x' />
-                </span>
-                <span className='count'>{count}</span>
-                <span className='counter-indicator' onClick={handleDecrement}>
-                  <FontAwesomeIcon icon={faMinus} size='1x' />
-                </span>
-              </div>
-              <div>
-                <button
-                  type='button'
-                  className='btn btn-outline-success'
-                  onClick={() => handleAddtoCart(product.id, count)}
-                >
-                  Add
-                </button>
-              </div>
-            </div>
+            <AddCounter id={product.id} onAddToCart={onAddToCart} />
           )}
         </div>
       </div>

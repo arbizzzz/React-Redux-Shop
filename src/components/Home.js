@@ -1,12 +1,14 @@
 import React from 'react';
 import AllProducts from './AllProducts';
-import CategoryNav from './CategoryNav';
+import Header from './Header';
 
-export default function Home(props) {
+export default function Home() {
   return (
-    <div className='container'>
-      <CategoryNav />
-      <AllProducts />
-    </div>
+    <>
+      <Header />
+      <div className='container'>
+        <AllProducts />
+      </div>
+    </>
   );
 }
