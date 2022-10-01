@@ -14,7 +14,6 @@ export default function ProductCard({ product }) {
   function onAddToCart() {
     setShowCounter(false);
   }
-  console.log(typeof product.id);
 
   return (
     <div className='card'>

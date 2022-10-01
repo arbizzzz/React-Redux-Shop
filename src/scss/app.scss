@@ -28,24 +28,7 @@ header {
         color: $green;
       }
     }
-    .nav-cart-item {
-      margin-left: auto;
-      position: relative;
-      span {
-        position: absolute;
-        top: -5px;
-        right: -5px;
-        width: 15px;
-        height: 15px;
-        font-size: 10px;
-        text-align: center;
-        line-height: 1.5;
-        color: #fff;
-        border-radius: 50%;
-        background-color: red;
-      }
-    }
-    #nav-cart {
+    .nav-card {
       position: absolute;
       top: 20px;
       left: 50%;
@@ -53,6 +36,12 @@ header {
       z-index: 999;
       min-width: 200px;
       width: 300px;
+      .count {
+        font-size: 12px;
+      }
+      .total-amount {
+        font-size: 14px;
+      }
       .card {
         border-radius: 15px;
         strong {
@@ -73,9 +62,6 @@ header {
           font-size: 14px;
           margin: 0 20px;
         }
-        .final-price {
-          font-size: 16px;
-        }
       }
       .cart-total-title {
         font-size: 16px;
@@ -85,6 +71,29 @@ header {
         font-weight: 18px;
         font-weight: bold;
       }
+    }
+  }
+}
+
+.nav-cart-item {
+  margin-left: auto;
+
+  display: flex;
+  gap: 20px;
+  div {
+    position: relative;
+    .nav-cart-badge {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      width: 15px;
+      height: 15px;
+      font-size: 10px;
+      text-align: center;
+      line-height: 1.5;
+      color: #fff;
+      border-radius: 50%;
+      background-color: red;
     }
   }
 }
@@ -153,6 +162,15 @@ header {
       border-radius: 10px;
       text-decoration: none;
       margin-bottom: 10px;
+    }
+  }
+}
+
+.profile-info {
+  p {
+    font-size: 16px;
+    strong {
+      font-size: 18px;
     }
   }
 }

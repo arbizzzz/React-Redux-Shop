@@ -4,6 +4,7 @@ import Product from './Product';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { handleInitialData } from '../utils/helpers';
+import Profile from './Profile';
 
 export default function App() {
   const dispatch = useDispatch();
@@ -17,6 +18,7 @@ export default function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route exact path='/product/:productId' element={<Product />}></Route>
+        <Route exact path='/profile/:userId' element={<Profile />}></Route>
       </Routes>
     </Router>
   );

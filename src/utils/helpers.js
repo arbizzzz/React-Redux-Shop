@@ -32,3 +32,13 @@ export const handleInitialData = (dispatch) => {
       console.warn(err.message);
     });
 };
+
+export const getProfile = async (id) => {
+  try {
+    const response = await Api.get(`/users/${id}`);
+    const profile = await response.data;
+    return profile;
+  } catch (error) {
+    console.warn(error);
+  }
+};

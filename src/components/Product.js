@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Api } from '../utils/api';
 import AddCounter from './AddCounter';
-
-import Header from './Header';
+import Header from './shared/Header';
 
 export default function Product() {
   const [product, setProduct] = useState('');
