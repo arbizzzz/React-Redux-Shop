@@ -1,17 +1,19 @@
 import { LOGIN, LOGOUT } from '../actions/profile';
 import jwt from 'jwt-decode';
 
-const isAuthed = localStorage.getItem('auth') !== null;
-const { sub } = isAuthed && jwt(localStorage.getItem('auth'));
+const token = localStorage.getItem('auth');
+const { sub } = jwt(token);
 
 export default function user(
-  state = { auth: isAuthed, id: sub || '' },
+  state = { auth: token ? true : '', id: sub || null },
   action
 ) {
   switch (action.type) {
     case LOGIN:
-      const { token } = action;
+      const { token } = action.payload;
       localStorage.setItem('auth', token);
+      const { sub } = jwt(token);
+      console.log(sub);
       return {
         ...state,
         auth: true,
@@ -22,6 +24,7 @@ export default function user(
       return {
         ...state,
         auth: false,
+        id: '',
       };
     default:
       return state;

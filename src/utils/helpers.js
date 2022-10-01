@@ -17,8 +17,7 @@ export const getCartProducts = (cartItems, products) => {
 export const handleInitialData = (dispatch) => {
   Api.get('/products')
     .then((data) => {
-      const initialData = data.data;
-      dispatch(getProducts(initialData));
+      dispatch(getProducts(data.data));
     })
     .catch((err) => {
       console.warn(err.message);
@@ -41,4 +40,12 @@ export const getProfile = async (id) => {
   } catch (error) {
     console.warn(error);
   }
+};
+
+export const formatPassword = (password) => {
+  let string = '';
+  for (let i = 0; i < password.length; i++) {
+    string = string + '*';
+  }
+  return string;
 };

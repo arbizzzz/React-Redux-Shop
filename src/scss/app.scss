@@ -48,6 +48,14 @@ header {
           font-size: 13px;
         }
       }
+      .profile-info {
+        p {
+          font-size: 16px;
+          strong {
+            font-size: 18px;
+          }
+        }
+      }
       .cart-product-item {
         border-bottom: 1px solid $wolf;
         padding-bottom: 10px;
@@ -162,15 +170,6 @@ header {
       border-radius: 10px;
       text-decoration: none;
       margin-bottom: 10px;
-    }
-  }
-}
-
-.profile-info {
-  p {
-    font-size: 16px;
-    strong {
-      font-size: 18px;
     }
   }
 }
