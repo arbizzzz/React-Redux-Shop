@@ -13,7 +13,6 @@ export default function user(
       const { token } = action.payload;
       localStorage.setItem('auth', token);
       const { sub } = jwt(token);
-      console.log(sub);
       return {
         ...state,
         auth: true,
