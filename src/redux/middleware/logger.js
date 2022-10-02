@@ -1,4 +1,5 @@
 const logger = (store) => (next) => (action) => {
+  // jaleb er chim tese esi :D
   console.group(action.type);
   console.log('The action: ', action);
   const returnValue = next(action);

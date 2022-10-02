@@ -58,6 +58,7 @@ export default function MainNav() {
                   className={`nav-item ${
                     category === selected ? 'active' : ''
                   }`}
+                  // inchova tarber age henx index e dnes? key={index} ?
                   key={`_${index}`}
                 >
                   <span
