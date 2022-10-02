@@ -7,7 +7,6 @@ export const getCartProducts = (cartItems, products) => {
   cartItems.map((item, index) => {
     let count = item.count;
     itemsInCart.push(...products.filter((product) => item.id === product.id));
-    console.log(itemsInCart);
     itemsInCart[index]['count'] = count;
     return [...itemsInCart];
   });
