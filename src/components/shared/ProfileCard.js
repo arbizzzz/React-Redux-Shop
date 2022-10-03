@@ -14,6 +14,8 @@ export default function LoginCard() {
   const id = profile.id;
   const navigate = useNavigate();
 
+  console.log(profile);
+
   useEffect(() => {
     if (isLoggedIn) {
       getProfile(id).then((data) => {

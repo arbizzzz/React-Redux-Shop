@@ -2,7 +2,7 @@ import { LOGIN, LOGOUT } from '../actions/profile';
 import jwt from 'jwt-decode';
 
 const token = localStorage.getItem('auth');
-const id = token ? jwt(token) : '';
+const id = token ? jwt(token).sub : '';
 
 export default function user(
   state = { auth: token ? true : false, id },
@@ -13,6 +13,7 @@ export default function user(
       const { token } = action.payload;
       localStorage.setItem('auth', token);
       const { sub } = jwt(token);
+
       return {
         ...state,
         auth: true,
