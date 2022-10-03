@@ -32,9 +32,9 @@ export default function LoginForm() {
   }
 
   return (
-    <div className='login-form' onSubmit={handleSubmit}>
+    <div className='login-form'>
       <h4>Sign in </h4>
-      <form autoComplete='off'>
+      <form autoComplete='off' onSubmit={handleSubmit}>
         <input
           type='text'
           name='username'
