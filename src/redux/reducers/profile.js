@@ -5,7 +5,7 @@ const token = localStorage.getItem('auth');
 const { sub } = jwt(token);
 
 export default function user(
-  state = { auth: token ? true : '', id: sub || null },
+  state = { auth: token ? true : false, id: sub || null },
   action
 ) {
   switch (action.type) {
