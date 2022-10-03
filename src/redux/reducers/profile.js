@@ -2,10 +2,10 @@ import { LOGIN, LOGOUT } from '../actions/profile';
 import jwt from 'jwt-decode';
 
 const token = localStorage.getItem('auth');
-const { sub } = jwt(token);
+const id = token ? jwt(token) : '';
 
 export default function user(
-  state = { auth: token ? true : false, id: sub || null },
+  state = { auth: token ? true : false, id },
   action
 ) {
   switch (action.type) {
